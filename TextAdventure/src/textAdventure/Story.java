@@ -1,5 +1,6 @@
 package textAdventure;
 
+import monsters.Monster_Balrog;
 import monsters.Monster_Goblin;
 import monsters.SuperMonster;
 import weapons.Weapon_Knife;
@@ -190,8 +191,15 @@ public class Story {
     }
 
     public void west() {
-
-        monster = new Monster_Goblin();
+        
+        int i = new java.util.Random().nextInt(100) + 1;
+        
+        if (i < 90) {
+            monster = new Monster_Goblin();
+        } else {
+            monster = new Monster_Balrog();
+        }
+        
 
         ui.mainTextArea.setText("You encounter a " + monster.name + "!");
         ui.choice1.setText("Fight");
@@ -249,7 +257,7 @@ public class Story {
 
         int monsterDamage = new java.util.Random().nextInt(monster.attack);
 
-        ui.mainTextArea.setText("The " + monster.name + " attacked you and gave " + monsterDamage + " damage!");
+        ui.mainTextArea.setText(monster.attackMessage + "\nYou received " + monsterDamage + " damage!");
 
         player.hp = player.hp - monsterDamage;
         ui.hpNumberLabel.setText("" + player.hp);
