@@ -123,7 +123,7 @@ public class UI {
         hpNumberLabel.setFont(normalFont);
         hpNumberLabel.setForeground(Color.white);
         playerPanel.add(hpNumberLabel);
-        weaponLabel = new JLabel();
+        weaponLabel = new JLabel("Weapon:");
         weaponLabel.setFont(normalFont);
         weaponLabel.setForeground(Color.white);
         playerPanel.add(weaponLabel);
